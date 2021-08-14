@@ -1,4 +1,4 @@
-# JumpKingGodot
+# Jump King clone w/Godot
 Jump King clone made with Godot
 
 Trying to finetune the physics to be as close as possible. the slopes are very iffy still.
