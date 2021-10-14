@@ -5,4 +5,4 @@ Trying to finetune the physics to be as close as possible.
 Most entities and some foliage missing, along with music and the babe at the end(sorry)
 Holding C enables noclip
 
-Try the web export here https://kalpura.github.io/JumpKingGodot/
+Try the web export here https://kalekki.github.io/JumpKingGodot/
