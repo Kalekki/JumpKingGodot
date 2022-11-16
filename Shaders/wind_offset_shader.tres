@@ -1,0 +1,12 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+uniform float offset;
+
+void fragment(){
+    vec2 newuv = UV;
+    newuv.x += offset*5.;
+    vec4 c = texture(TEXTURE, newuv);
+    COLOR = c;
+}"
