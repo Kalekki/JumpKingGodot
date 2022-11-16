@@ -1,0 +1,164 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Sprites/Logos/title_logo.png" type="Texture" id=1]
+[ext_resource path="res://Audio/music/menu_intro.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Fonts/Title_scene.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Scripts/Title_scene.gd" type="Script" id=4]
+[ext_resource path="res://Audio/music/title_hit.wav" type="AudioStream" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Logo rise"
+length = 8.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Logo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 40, 80 ), Vector2( 40, 76 ), Vector2( 40, 72 ), Vector2( 40, 68 ), Vector2( 40, 64 ), Vector2( 40, 60 ), Vector2( 40, 56 ), Vector2( 40, 52 ), Vector2( 40, 48 ), Vector2( 40, 44 ), Vector2( 40, 52 ), Vector2( 40, 44 ), Vector2( 40, 52 ), Vector2( 40, 44 ), Vector2( 40, 52 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Logo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.12549 ), Color( 1, 1, 1, 0.25098 ), Color( 1, 1, 1, 0.376471 ), Color( 1, 1, 1, 0.501961 ), Color( 1, 1, 1, 0.627451 ), Color( 1, 1, 1, 0.752941 ), Color( 1, 1, 1, 0.878431 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("sfxplayer:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("Label/Timer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 3.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.5 ],
+"method": "start"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Logo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Logo:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 40, 72 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("sfxplayer:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[node name="Title_scene" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Logo rise" = SubResource( 1 )
+anims/RESET = SubResource( 3 )
+
+[node name="Logo" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 40, 72 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 4, 0 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = 200.0
+margin_top = 216.0
+margin_right = 280.0
+margin_bottom = 230.0
+custom_fonts/font = ExtResource( 3 )
+text = "Press Space"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="Label"]
+wait_time = 0.5
+
+[node name="musicplayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
+
+[node name="sfxplayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[connection signal="timeout" from="Label/Timer" to="." method="_on_Timer_timeout"]

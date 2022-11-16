@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/menu_fail.wav-51179b176541c1a28276b8c32a49ac69.sample"
+
+[deps]
+
+source_file="res://Audio/gui_sfx/menu_fail.wav"
+dest_files=[ "res://.import/menu_fail.wav-51179b176541c1a28276b8c32a49ac69.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

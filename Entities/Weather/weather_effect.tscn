@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Weather/weather_effect_texturerect.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Levels/Weather/light_rain0.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Levels/Weather/light_rainmask9.png" type="Texture" id=3]
+
+[node name="weather_effect" type="Node2D"]
+light_mask = 2
+script = ExtResource( 1 )
+mask = ExtResource( 3 )
+Type = "Light snow"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+use_parent_material = true
+margin_left = -120.0
+margin_right = 600.0
+margin_bottom = 360.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.083
+autostart = true
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 240, 180 )
+texture = ExtResource( 3 )
+energy = 1.2
+mode = 3
+range_item_cull_mask = 3
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+visible = false
+position = Vector2( 240, 176 )
+process_parent = true
+physics_process_parent = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

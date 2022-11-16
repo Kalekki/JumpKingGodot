@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Weather/parallax_sprite.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Levels/Parallax/4_clouds.png" type="Texture" id=2]
+
+[node name="ParallaxSprite" type="Sprite"]
+texture = ExtResource( 2 )
+centered = false
+script = ExtResource( 1 )
